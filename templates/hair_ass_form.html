@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+    <style>
+    body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    color: #323531;
+}
+
+nav {
+    background-color: #323531;
+    height: 80px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    /* text-size-adjust: 5px; */
+}
+
+li {
+    font-size: 20px;
+    font-weight: 500;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fcfffdff;
+    padding: 20px 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #E6DAD1;
+}
+
+#spotlight {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #323531;
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #323531;
+}
+
+.tagline {
+    color: #5d737eff;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.content p, .p {
+    flex: 1;
+    margin-left: 400px;
+}
+
+.content img {
+    max-width: 300px;
+    height: auto;
+    margin-right: 400px;
+}
+
+.side-by-side {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.unique-image {
+    max-width: 10%;
+}
+
+.unique-content {
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.unique-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.step-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.step {
+    text-align: center;
+    width: 30%;
+}
+
+.step h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.step img {
+    max-width: 100%;
+    width: 250px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.login-signup {
+    text-align: center;
+    margin-top: 30px;
+    /* background-color: #C4BDAC; */
+}
+
+.login-signup a {
+    text-decoration: none;
+    color: #C4BDAC;
+}
+
+.reviews {
+    margin-top: 30px;
+    color: #C4BDAC;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #323531;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #323531;
+    color: #C4BDAC;
+}
+
+.contact {
+    margin-top: 30px;
+    text-align: center;
+    
+}
+.footer {
+    background-color:#323531 ;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #C4BDAC;
+    margin: 0 10px;
+}
+
+.side-image {
+    float: right;
+    max-width: 50%;
+    margin-left: 50px;
+}
+
+.frame {
+    border: 1px solid #323531;
+    text-align: center;
+}
+.skin-type-steps h1 {
+    align-items: center;
+}
+.skin-type-steps {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 500px;*/
+    /* margin-left: 200px; 
+    margin-right: 200px; */
+    /* background-image: url("{{ url_for('static', filename='images/bg.jpg') }}"); */
+    background: transparent;
+    background-size:auto;
+    background-color: rgba(255, 255, 255, 0); /* Adjust the alpha (fourth) value for transparency */
+}
+
+
+.skin-type-step {
+
+    width: calc(40% - 20px);
+    max-width: calc(40% - 20px);
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f2f2;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    display: inline;
+    background: transparent;
+    border-radius: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.lowprice {
+    /* background-color: #F6F1EE;
+    border: 1px solid #9D5A4D;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
+
+    background: transparent;
+    border-radius: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.highprice {
+    /* background-color: #F6F1EE;
+    border: 1px solid #9D5A4D;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
+
+    background: transparent;
+    border-radius: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.lowprice img, .highprice img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+h5 {
+    font-size: 16px;
+    color: #666;
+}
+
+p {
+    font-size: 14px;
+    color: #888;
+    margin: 10px 0;
+}
+
+h6 a {
+    text-decoration: none;
+    color: #323531;
+}
+
+h6 a:hover {
+    color: #c0fdfbff;
+}
+
+
+
+.skin-type-step img {
+    width: 30%;
+    height: 50%;
+}
+
+.skin-type-step h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.skin-type-step p {
+    font-size: 16px;
+    color: #666;
+}
+
+.skinsteps {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+
+.skinstep {
+    display: none;
+}
+
+.skinstep:target {
+    width: calc(40% - 20px);
+    max-width: calc(40% - 20px);
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f2f2;
+    margin-bottom: 20px;
+    margin: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+    display: inline;
+    background: transparent;
+    /* border-radius: 20px;
+    border-radius: 10px; */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.skinstep img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.skinstep h3 {
+    font-size: 20px;
+    color: #666;
+}
+
+.skinstep p {
+    font-size: 16px;
+    color: #C4BDAC;
+}
+
+#qiuzContainer:target {
+    display: block;
+}
+
+/* nav {
+    background-color: deeppink;
+    height: 40px;
+} */
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+/* nav li {
+    display: inline;
+} */
+
+.logo {
+    margin-left: 90px; /* Adjust the margin as needed */
+}
+
+.logo img {
+    max-height: 50px; /* Set the maximum height for the logo */
+}
+
+/* .nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #555;
+} */
+#hairTypeA1 {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 500px;*/
+    /* margin-left: 200px; 
+    margin-right: 200px; */
+    background-image: url("{{ url_for('static', filename='images/hair1.jpg') }}");
+    background-size:auto;
+    background-color: rgba(255, 255, 255, 0.6); /* Adjust the alpha (fourth) value for transparency */
+}
+
+#hairTypeB1 {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 500px;*/
+    /* margin-left: 200px; 
+    margin-right: 200px; */
+    background-image: url("{{ url_for('static', filename='images/hair3.jpg') }}");
+    background-size:auto;
+    background-color: rgba(255, 255, 255, 0.6); /* Adjust the alpha (fourth) value for transparency */
+}
+
+#hairTypeC1 {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 500px;*/
+    /* margin-left: 200px; 
+    margin-right: 200px; */
+    background-image: url("{{ url_for('static', filename='images/hair4.jpg') }}");
+    background-size:auto;
+    background-color: rgba(255, 255, 255, 0.6); /* Adjust the alpha (fourth) value for transparency */
+}
+
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <br>
+        <ul>
+            <li><div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="InsightfulGlow Logo">
+            </div></li>
+            <li><a href="/home1" class="nav-item" >Home</a></li>
+            <li><a href="/about" class="nav-item" >About</a></li>
+            <li><a href="/contact" class="nav-item" >Contact</a></li>
+            <li><a href="/hair" class="nav-item" >Hair</a></li>
+            <li><a href="/skin" class="nav-item" >Skin</a></li>
+        </ul>
+    </nav>
+    <div id="spotlight"></div>
+    <script>
+        // JavaScript code for the spotlight effect
+        const navItems = document.querySelectorAll('.nav-item');
+        const spotlight = document.getElementById('spotlight');
+
+        navItems.forEach((item) => {
+            item.addEventListener('mouseenter', (e) => {
+                const color = e.target.getAttribute('data-color');
+                spotlight.style.backgroundColor = color;
+                spotlight.style.left = `${e.target.getBoundingClientRect().left + window.scrollX}px`;
+                spotlight.style.top = `${e.target.getBoundingClientRect().top + window.scrollY}px`;
+               
+            });
+
+            item.addEventListener('mouseleave', () => {
+                spotlight.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
+    <hr>
+    <section id="cleanHair" style="text-align: center;">
+        <h1>Hair Assessment Test</h1>
+        <fieldset style="border-color: #323531;">
+            <legend><h1>Note</h1></legend>
+            <p>Start with freshly washed hair. Use a gentle shampoo and conditioner to ensure your hair is clean and free from product buildup.</p>
+        </fieldset>
+    </section>
+    
+<section id="hairTypeA" style="text-align: center;">
+    
+    <fieldset style="border-color: #323531;">
+        <legend><h1>Checking Your Hair Texture Type</h1></legend>
+        Examine your hair strands. Run your fingers along a few strands of hair, paying attention to their texture.
+        <div class="skin-type-steps" id="hairTypeA1">
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Finehair.jpg') }}" alt="Hair Type A">
+                <h3>Fine Hair</h3>
+                <p>If your hair strands are very thin and delicate, you likely have fine hair.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Mediumhair.jpg') }}" alt="Hair Type A">
+                <h3>Fine to Normal Hair</h3>
+                <p>If your hair strands are fine but not extremely thin, you likely have fine to normal hair.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Normalhair.jpg') }}" alt="Hair Type A">
+                <h3>Medium Hair</h3>
+                <p> If your hair strands have a medium thickness and feel neither very thin nor very coarse, you likely have medium hair.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Coarsehair.jpg') }}" alt="Hair Type A">
+                <h3>Coarse Hair</h3>
+                <p>If your hair strands are thick and feel rough or coarse, you likely have coarse hair.</p>
+            </div>
+            
+        </div>
+    </fieldset>
+</section>
+
+<br><br><br><br>
+<section id="hairTypeB" style="text-align: center;">
+    
+    <fieldset style="border-color: #323531;">
+        <legend><h1>Checking Your Hair Shine & Condition </h1></legend>
+        Hair Shine and Condition: Examine your hair's natural shine and how it feels.
+        <div class="skin-type-steps" id="hairTypeB1">
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Oilyhair.jpg') }}" alt="Hair Type B">
+                <h3>Oily Hair</h3>
+                <p> If your hair feels greasy and looks shiny shortly after washing, you likely have oily hair.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/oilyhair1.jpg') }}" alt="Hair Type B">
+                <h3>Normal to Oily Hair</h3>
+                <p>If your roots are oily but the rest of your hair feels normal, you likely have normal to oily hair.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Dryhair1.jpg') }}" alt="Hair Type B">
+                <h3>Normal to Dry Hair</h3>
+                <p>If your roots are oily, but your hair feels dry or rough at the ends, you likely have normal to slightly dry hair.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Dryhair.jpg') }}" alt="Hair Type B">
+                <h3>Dry Hair</h3>
+                <p>If your hair feels dry, brittle, and lacks shine, you likely have dry hair.</p>
+            </div>
+        </div>
+    </fieldset>
+</section>
+
+<br><br><br><br>
+<section id="hairTypeC" style="text-align: center;">
+    
+    <fieldset style="border-color: #323531;">
+        <legend><h1>Checking Your Scalp Condition</h1></legend>
+        Pay attention to your scalp's condition.
+        <div class="skin-type-steps" id="hairTypeC1">
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Oilyscalp.jpg') }}" alt="Hair Type C">
+                <h3>Oily Scalp</h3>
+                <p> If your scalp is consistently oily and prone to dandruff, you likely have an oily scalp.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Oilyscalp1.jpg') }}" alt="Hair Type C">
+                <h3>Oily T-Zone Scalp</h3>
+                <p> If your scalp is oily primarily in the T-zone (forehead area), you likely have an oily T-zone scalp.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Normalscalp.jpg') }}" alt="Hair Type C">
+                <h3>Normal Scalp</h3>
+                <p>If your scalp feels comfortable with occasional dryness or flaking, you likely have a normal scalp.</p>
+            </div>
+            <div class="skin-type-step">
+                <img src="{{ url_for('static', filename='images/Dryscalp.jpg') }}" alt="Hair Type C">
+                <h3>Dry Scalp</h3>
+                <p>If your scalp is dry, itchy, or prone to tightness, you likely have a dry scalp.</p>
+            </div>
+        </div>
+    </fieldset>
+</section>
+<br><br>
+<h1> Give a quick haircare test for personalized suggestions!!</h1>               
+                
+<div>
+    <form id="assessmentForm" style="text-align:center ;">
+        <!-- <fieldset> -->
+        <section class="question">
+            <!-- <h1>Skincare Quiz</h1>-->
+            <button type="button" id="startQuiz" style="background-color:black; color: white; font-size: 20px; padding: 10px 20px; border: none; cursor: pointer;" onclick='document.getElementById("startQuiz").innerHTML=<a href="#quizContainer"></a>' >Haircare Quiz</button>
+            
+            <div id="quizContainer" style="display:none;" >
+                <form id="assessmentForm" style="text-align:center;">
+                    <!-- <fieldset><legend>From Step 2</legend> -->
+                        <section class="question">
+                            <h2>What is your natural hair type? (That means, what does your hair look like when it's washed and air-dried?)</h2>
+                            <input type="radio" name="q1" value="A"> Straight <br>
+                            <input type="radio" name="q1" value="B">Wavy<br>
+                            <input type="radio" name="q1" value="C"> Curly<br>
+                            <input type="radio" name="q1" value="D"> Coily<br>
+                        </section>
+                        <section class="question">
+                            <h2>What is your hair thickness? (Select the option below that best describes what a single strand of your hair feels like when you roll it between two fingers.)</h2>
+                            <input type="radio" name="q2" value="A">Fine<br>
+                            <input type="radio" name="q2" value="B">Medium<br>
+                            <input type="radio" name="q2" value="C"> Coarse<br>
+                            <!-- <input type="radio" name="q2" value="D"> Dry<br> -->
+                        </section>
+                        <section class="question">
+                            <h2>How does your scalp feel the day after washing your hair? (You can always reformulate every season if your scalp moisture level changes with the seasons! So answer what your current moisture level feels like.)</h2>
+                            <input type="radio" name="q3" value="A"> Dry(Scalp is tight & uncomfortable)<br>
+                            <input type="radio" name="q3" value="B">Balanced<br>
+                            <input type="radio" name="q3" value="C"> Oily(Roots feet flat and greasy)<br>
+                            <!-- <input type="radio" name="q3" value="D"> Dry<br> -->
+                        </section>
+
+                        <section class="question">
+                            <h2>What is your natural hair texture ? (That means, what does your hair feel like when it's washed and air-dried?)</h2>
+                            <input type="radio" name="q4" value="A"> Frizzy<br>
+                            <input type="radio" name="q4" value="B">Balanced<br>
+                            <input type="radio" name="q4" value="C"> Oily<br>
+                        </section>
+                    
+                        <!-- Add more questions and answers as needed -->
+                        <button type="button" id="calculateButton"  style="background-color:black; color: white; font-size: 20px; padding: 10px 20px; border: none; cursor: pointer;" >Calculate</button>
+                    <!-- </fieldset> -->
+                </form>
+                <h1>suggestion</h1>
+<div id="selectedOptionQ1"></div>
+
+<div id="selectedOptionQ2"></div>
+<div id="selectedOptionQ3"></div>
+<div id="selectedOptionQ4"></div>
+<div id="selectedOptionQ5"></div>
+<div id="selectedOptionQ6"></div>
+<div>
+    
+    <div class="skinstep" id="product1" >
+        <h2>Step 1:- Serum</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/8/9/8994e0aMINIM00000141_2509231.jpg" alt="Oily Skin">
+            <h3>Minimalist CPH Complex + Oligopeptide 0.8% Anti-Dandruff Serum</h3>
+            <h5>MRP: ₹ 499</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/minimalist-cph-complex-oligopeptide-0-8percent-anti-dandruff-serum-treats-dandruff-itchy-scalp/p/12685067?productId=12685067&pps=3"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+    <div class="skinstep" id="product2" >
+        <h2>Step 1:- Serum</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/a/0/a0149c5LOVEB00000145_1gmc.jpg" alt="Oily Skin">
+            <h3>Love Beauty & Planet Argan Oil & Lavender Hair Serum For Frizz Free Hair</h3>
+            <h5>MRP: ₹ 400</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/love-beauty-planet-argan-oil-lavender-hair-serum-for-frizz-free-hair/p/10055051?productId=10055051&pps=9"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+    <div class="skinstep" id="product3" >
+        <h2>Step 1:- Serum</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/f/5/f507df06923700970449_1.jpg" alt="Oily Skin">
+            <h3>L'Oreal Paris Extraordinary Oil Hair Serum, Anti-Frizz Serum With UV Protection</h3>
+            <h5>MRP: ₹ 649</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/l-oreal-paris-elseve-extraordinary-oil-serum/p/1133168?productId=1133168&pps=4&skuId=861348"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="skinstep" id="product4" >
+        <h2>Step 1:- Serum</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/f/8/f85bae16946537083809_z1.jpg" alt="Oily Skin">
+            <h3>L'Oreal Professionnel X-Tenso Care Serum For Smooth, Manageable Hair</h3>
+            <h5>MRP: ₹ 680</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/l-oreal-professionnel-x-tenso-care-serum/p/10508?productId=10508&pps=17"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="skinstep" id="product5" >
+        <h2>Step 2:- Cream & Mask</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/a/2/a287d5fLOREA00000030_1.jpg" alt="Oily Skin">
+            <h3>LOreal Paris Dream Lengths No Haircut Cream- Leave-In Cream</h3>
+            <h5>MRP: ₹ 549</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/l-oreal-paris-dream-lengths-no-haircut-cream/p/1162149?productId=1162149&pps=13"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+
+    <div class="skinstep" id="product6" >
+        <h2>Step 2:- Cream & Mask</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/2/f/2ff9a8b4870026_1.jpg" alt="Oily Skin">
+            <h3>Love Beauty & Planet Argan Oil & Lavender Hair Mask</h3>
+            <h5>MRP: ₹ 600</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/love-beauty-planet-argan-oil-lavender-hair-mask/p/4870026?productId=4870026&pps=4"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+
+    <div class="skinstep" id="product7" >
+        <h2>Step 2:- Cream & Mask</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/8/c/8cbcd94NYLOPROF00001_1.jpg" alt="Oily Skin">
+            <h3>L'Oreal Professionnel Absolut Repair Hair Mask For Dry and Damaged Hair</h3>
+            <h5>MRP: ₹ 920</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/l-oreal-professionnel-absolut-repair-lipidium-masque/p/18400?productId=18400&pps=1"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="skinstep" id="product8" >
+        <h2>Step 3:- Conditioner</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/f/5/f507df08901526603404_1.jpg" alt="Oily Skin">
+            <h3>L'Oreal Paris Hyaluron Moisture 72H Moisture Sealing Conditioner With Hyaluronic Acid</h3>
+            <h5>MRP: ₹ 249</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/l-oreal-paris-hyaluron-moisture-72h-moisture-sealing-conditioner-with-hyaluronic-acid/p/6671065?productId=6671065&pps=1"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+
+    <div class="skinstep" id="product9" >
+        <h2>Step 3:- Conditioner</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/9/7/971ae74ANOAA00000004_1ml.jpg" alt="Oily Skin">
+            <h3>Anomaly Shine Conditioner for Nourishment & Shine with Murumuru Butter & Jojoba oil</h3>
+            <h5>MRP: ₹ 820</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/anomaly-shine-conditioner/p/5597749?productId=5597749&pps=4"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+
+    <div class="skinstep" id="product10" >
+        <h2>Step 3:- Conditioner</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/8/2/82b17ffLOVEB00000103_1.jpg" alt="Oily Skin">
+            <h3>Love Beauty & Planet Curry Leaves- Biotin & Mandarin Orange Paraben Free Conditioner</h3>
+            <h5>MRP: ₹ 700</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/love-beauty-planet-curry-leaves-biotin-mandarin-paraben-free-conditioner/p/11327980?productId=11327980&pps=3&skuId=6382709"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="skinstep" id="product11" >
+        <h2>Step 4:- Shampoo</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/f/5/f507df08901526603435_1.jpg" alt="Oily Skin">
+            <h3>L'Oreal Paris Hyaluron Moisture 72H Moisture Filling Shampoo With Hyaluronic Acid</h3>
+            <h5>MRP: ₹ 1149</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/l-oreal-paris-hyaluron-moisture-72h-moisture-filling-shampoo-with-hyaluronic-acid/p/6671067?productId=6671067&pps=1&skuId=6671064"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="skinstep" id="product12" >
+        <h2>Step 4:- Shampoo</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/9/7/971ae74ANOAA00000002_1ml.jpg" alt="Oily Skin">
+            <h3>Anomaly Hydrating Shampoo for Dull & Dry Hair with Coconut Oil & Aloe Vera</h3>
+            <h5>MRP: ₹ 750</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/anomaly-hydrating-shampoo/p/5597747?productId=5597747&pps=8"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+
+
+
+    <div class="skinstep" id="product13" >
+        <h2>Step 4:- Shampoo</h2>
+        <br>
+        <div class="lowprice">
+            <img src="https://images-static.nykaa.com/media/catalog/product/2/f/2ff9a8b6382708_1.jpg" alt="Oily Skin">
+            <h3>Love Beauty & Planet Curry Leaves- Biotin & Mandarin Orange Sulfate Free Shampoo</h3>
+            <h5>MRP: ₹ 650</h5>
+            <p>Start with a clean face. Wash your face with a gentle cleanser to remove any makeup, dirt, or oils. Pat your face dry with a clean towel. Avoid applying any skincare products for the next few hours.</p>
+            <a href="https://www.nykaa.com/love-beauty-planet-curry-leaves-biotin-mandarin-sulfate-free-shampoo/p/11327979?productId=11327979&pps=2&skuId=6382708"><h6>Dive in! Click the link to purchase.</h6></a>
+        </div>
+        <br>
+    </div>
+    </div>
+    <script>
+        const quizButton = document.getElementById('startQuiz');
+        const quizContainer = document.getElementById('quizContainer');
+
+        quizButton.addEventListener('click', function() {
+            quizButton.style.display = 'none'; // Hide the button
+            quizContainer.style.display = 'block'; // Show the quiz container
+        });
+    </script>
+
+<script>
+
+
+    // Get a reference to the form element
+    const form = document.getElementById('assessmentForm');
+    
+    // Add an event listener to the "Calculate" button
+    const calculateButton = document.getElementById('calculateButton');
+    calculateButton.addEventListener('click', calculateResult);
+    
+    function calculateResult() {
+      // Initialize variables to keep track of scores for each category
+      let scoreQ1 = 0;
+      let scoreQ2 = 0;
+      let scoreQ3 = 0;
+      let scoreQ4 = 0;
+
+      // Get the selected values for each question
+      const selectedValueQ1 = form.querySelector('input[name="q1"]:checked').value;
+      const selectedValueQ2 = form.querySelector('input[name="q2"]:checked').value;
+      const selectedValueQ3 = form.querySelector('input[name="q3"]:checked').value;
+      const selectedValueQ4 = form.querySelector('input[name="q4"]:checked').value;
+         
+              if (selectedValueQ1==='A' & ( selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product1').style.display = 'block';
+              }
+              if (selectedValueQ1==='B' & ( selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product2').style.display = 'block';
+              }
+              if (selectedValueQ1==='C' & ( selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product3').style.display = 'block';
+              }
+              if (selectedValueQ1==='D' & ( selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product4').style.display = 'block';
+              }
+
+              if (selectedValueQ2==='A' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product5').style.display = 'block';
+              }
+              if (selectedValueQ2==='B' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product6').style.display = 'block';
+              }
+              if (selectedValueQ2==='C' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product7').style.display = 'block';
+              }
+
+              if (selectedValueQ3==='A' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ2==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product8').style.display = 'block';
+              }
+              if (selectedValueQ3==='B' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ2==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product9').style.display = 'block';
+              }
+              if (selectedValueQ3==='C' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ2==='B' || selectedValueQ2==='C' || selectedValueQ2==='A' || selectedValueQ4==='A' || selectedValueQ4==='B' || selectedValueQ4==='C')){
+                document.getElementById('product10').style.display = 'block';
+              }
+
+              if (selectedValueQ4==='A' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C')){
+                document.getElementById('product11').style.display = 'block';
+              }
+              if (selectedValueQ4==='B' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C')){
+                document.getElementById('product12').style.display = 'block';
+              }
+              if (selectedValueQ4==='C' & ( selectedValueQ1==='A' || selectedValueQ1==='B' || selectedValueQ1==='C' || selectedValueQ1==='D' || selectedValueQ3==='B' || selectedValueQ3==='C' || selectedValueQ3==='A' || selectedValueQ2==='A' || selectedValueQ2==='B' || selectedValueQ2==='C')){
+                document.getElementById('product13').style.display = 'block';
+              }
+         
+            //   // For simplicity, we'll assume A=4, B=3, C=2, D=1
+            //   scoreQ1 = selectedValueQ1 === 'A' ? 4 : selectedValueQ1 === 'B' ? 3 : selectedValueQ1 === 'C' ? 2 : 1;
+            //   scoreQ2 = selectedValueQ2 === 'A' ? 4 : selectedValueQ2 === 'B' ? 3 : selectedValueQ2 === 'C' ? 2 : 1;
+            //   scoreQ3 = selectedValueQ3 === 'A' ? 4 : selectedValueQ3 === 'B' ? 3 : selectedValueQ3 === 'C' ? 2 : 1;
+            //   scoreQ4 = selectedValueQ4 === 'A' ? 4 : selectedValueQ4 === 'B' ? 3 : selectedValueQ4 === 'C' ? 2 : 1;
+            //   scoreQ5 = selectedValueQ5 === 'A' ? 4 : selectedValueQ5 === 'B' ? 3 : selectedValueQ5 === 'C' ? 2 : 1;
+            //   scoreQ6 = selectedValueQ6 === 'A' ? 4 : selectedValueQ6 === 'B' ? 3 : selectedValueQ6 === 'C' ? 2 : 1;
+            
+            //   // Calculate the total score
+            //   const totalScore = scoreQ1 + scoreQ2 + scoreQ3 + scoreQ4 + scoreQ5 + scoreQ6;
+            
+            //   // Display the result or take further action based on the total score
+            //   // You can define your own logic for interpreting the score here
+            //   alert('Your total score is: ' + totalScore);
+              
+            }
+            
+            
+            
+                  </script>
+
+        <!-- <label for="skinIssue">Do you have any specific skin issues?</label>
+        <textarea id="skinIssue" name="skinIssue" rows="4" cols="50">-->
+    </form>
+
+ 
+</div>
+
+       
+    </div>
+    <DIV style="margin: 10px;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Hair Care Tips</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wash your hair regularly using a mild shampoo suitable for your hair type.</td>
+                </tr>
+                <tr>
+                    <td>Condition your hair after every wash to keep it soft and manageable.</td>
+                </tr>
+                <tr>
+                    <td>Avoid hot water for hair washing as it can strip away natural oils. Use lukewarm or cool water instead.</td>
+                </tr>
+                <tr>
+                    <td>Use a wide-toothed comb to detangle wet hair gently to prevent breakage.</td>
+                </tr>
+                <tr>
+                    <td>Trim your hair regularly to get rid of split ends and promote healthy hair growth.</td>
+                </tr>
+                <tr>
+                    <td>Avoid excessive use of heating tools like hairdryers, straighteners, and curling irons, as they can damage your hair.</td>
+                </tr>
+                <tr>
+                    <td>Protect your hair from the sun's harmful UV rays by wearing a hat or using hair products with UV protection.</td>
+                </tr>
+                <tr>
+                    <td>Avoid tight hairstyles that can pull on your hair, causing breakage and hair loss.</td>
+                </tr>
+                <tr>
+                    <td>Eat a balanced diet rich in nutrients, including vitamins and minerals that promote healthy hair.</td>
+                </tr>
+                <tr>
+                    <td>Stay hydrated by drinking enough water, as dehydration can affect your hair's health.</td>
+                </tr>
+                <tr>
+                    <td>Consider using hair masks and treatments to nourish and repair your hair, especially if it's damaged.</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <hr>
+        <div class="footer">
+        
+            <div class="contact">
+                <br>
+                <h2 style="color: #C4BDAC;text-decoration: underline;">Contact Us</h2>
+                <p>Have questions or feedback? Reach out to us:</p>
+                <a href="mailto:skin&haircare@sot.pdpu.ac.in">Email</a>
+                <a href="https://www.facebook.com/skin&haircare">Facebook</a>
+                <a href="https://www.instagram.com/skin&haircare">Instagram</a>
+                <a href="https://www.instagram.com/skin&haircare">Twitter</a>
+            </div>
+            <div class="login-signup">
+                <p>Thanks for visiting our page!</p>
+            </div>
+            <br>
+            <!-- <hr>  -->
+        </div>
+        </body>
+        
+        </html>

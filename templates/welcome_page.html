@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+  <style>
+  body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    margin: 0;
+    padding: 0;
+  }
+
+  .top-bar {
+      background-color: #323531; /* Choose your desired background color */
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #C4BDAC; /* Choose your desired text color */
+  }
+
+  .logo img {
+      max-width: 100px; /* Set the maximum width for your logo */
+  }
+
+  .message {
+      flex-grow: 1;
+      text-align: center;
+      font-weight: bold;
+  }
+
+  .slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  .mySlides {
+    display: block;
+  }
+  
+  .fade {
+    animation: fade 1.5s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="InsightfulGlow Logo">
+    </div>
+    <div class="message">
+        Welcome to Shaily's & Himanshi's Skincare & Haircare Website <br>InsightfulGlow
+    </div>
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="InsightfulGlow Logo">
+  </div>
+</div>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo0.png') }}" style="width:100%;height: 90%;">
+    </div>
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo1.png') }}" style="width:100%;height: 90%;">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo2.png') }}" style="width:100%;height: 90%;">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo3.png') }}" style="width:100%;height: 90%;">
+    </div>
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo4.png') }}" style="width:100%;height: 90%;">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo5.png') }}" style="width:100%;height: 90%;">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo6.png') }}" style="width:100%;height: 90%;">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ url_for('static', filename='images/demo7.png') }}" style="width:100%">
+    </div>
+
+    <!-- <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a> -->
+  </div>
+  
+  <script>
+    let slideIndex = 0;
+    showSlides();
+  
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+        window.location.href = '/login'; // Redirect after the slideshow is completed
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 5 seconds
+    }
+
+
+
+  </script>
+</body>
+</html>

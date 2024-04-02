@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+        }
+        /* Apply styles to the background container */
+        .background {
+            background-image: url("{{ url_for('static', filename='images/bg.jpg') }}");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the wrapper box containing the forms */
+        .wrapper-box {
+            padding: 35px;
+            text-align: center;
+            max-width: 600px;
+            background: transparent;
+            border-radius: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Style headings */
+        h1 {
+            color: #d6858a;
+            text-align: center;
+        }
+
+        /* Style form elements */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #d6858a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #c46c7e;
+        }
+
+        /* Style the error message */
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Style links */
+        a {
+            text-decoration: none;
+            color: palevioletred;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="wrapper-box">
+            <h1>Sign Up </h1>
+            <form class="login-form signup" action="/form/signup" method="post">
+                <div class="form-group">
+                    <label for="new-username">New Username</label>
+                    <input type="text" id="new-username" name="username" placeholder="Enter a new username">
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" name="password" placeholder="Enter a new password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm_password"
+                        placeholder="Confirm your password">
+                </div>
+                <button type="submit" onclick="return validateForm()">Sign Up</button>
+                <span id="password-error" class="error"></span>
+            </form>
+            <div class="signup-option">
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
+        </div>
+        <script>
+            function validateForm() {
+                var newPassword = document.getElementById("new-password").value;
+                var confirmPassword = document.getElementById("confirm-password").value;
+                var errorSpan = document.getElementById("password-error");
+
+                if (newPassword !== confirmPassword) {
+                    errorSpan.innerText = "Passwords do not match.";
+                    return false; // Prevent form submission
+                } else {
+                    errorSpan.innerText = "";
+                    return true; // Allow form submission
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

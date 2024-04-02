@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About Us</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+        }
+        /* Apply styles to the background container */
+        .background {
+            background-image: url("{{ url_for('static', filename='images/bg.jpg') }}");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the wrapper box containing the forms */
+        .wrapper-box {
+            padding: 35px;
+            text-align: center;
+            max-width: 600px;
+            background: transparent;
+            border-radius: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Style headings */
+        h1 {
+            color: #d6858a;
+            text-align: center;
+        }
+        h3 {
+            color:#323531;
+            text-align: center;
+        }
+
+        /* Style form elements */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #d6858a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #c46c7e;
+        }
+
+        /* Style the error message */
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Style links */
+        a {
+            text-decoration: none;
+            color: #323531;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="wrapper-box">
+           <div class="logo">
+                <img style="width: 20%; height: 20%;" src="{{ url_for('static', filename='images/logo.jpg') }}" alt="InsightfulGlow Logo">
+            </div>
+            <h1>About Us</h1>
+            <h3>InsightfulGlow is a cutting-edge skincare and haircare advisory platform designed to illuminate your path to radiant beauty. Users can share their unique skin and hair concerns with our platform, and in return, they receive personalized product recommendations tailored to their specific needs. But InsightfulGlow doesn't stop there. We provide users with daily routines and expert tips to help them achieve their skincare and haircare goals, ensuring that their journey towards a healthier, more beautiful complexion is both insightful and glowing. Say goodbye to guesswork and hello to a more confident, vibrant you with InsightfulGlow.</h3>
+            <h1>Reach us at!</h1>
+            <a href="mailto:skin&haircare@sot.pdpu.ac.in">Email</a>
+            
+            <a href="https://www.facebook.com/skin&haircare">Facebook</a>
+            
+            <a href="https://www.instagram.com/skin&haircare">Instagram</a>
+            
+            <a href="https://www.instagram.com/skin&haircare">Twitter</a>
+        </script>
+    </div>
+</body>
+
+</html>

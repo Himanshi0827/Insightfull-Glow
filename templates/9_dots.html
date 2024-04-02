@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+   <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+.top-bar {
+      background-color: #b9c7f3; /* Choose your desired background color */
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      color: #323531; /* Choose your desired text color */
+      
+  }
+
+  .top-bar h1 {
+    margin-left: 400px;
+  }
+
+body{
+    /* min-height: 100vh; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: #10131c;
+    
+}
+.frem{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background-color: #404a68;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transition-delay: 0.8s;
+    margin-left: 700px;
+}
+.frem.active{
+    width: 200px;
+    height: 200px;
+    transition-delay: 0s;
+}
+.frem p{
+    position: absolute;
+    top: -45px;
+    color: white;
+    font-family: system-ui;
+    font-size: 26px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.frem.active p{
+    opacity: 1;
+}
+
+.frem span{
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
+    transform: translate(calc(12px * var(--x)), calc(12px * var(--y)));
+    transition-delay: calc(0.1s * var(--i));
+}
+.frem.active span{
+    width: 45px;
+    height: 45px;
+    background: #333849;
+    transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+    
+}
+
+.frem img{
+    width: 0px;
+    transition: width 0.5s;
+}
+.frem.active img{
+    width: 44px;
+}
+
+   </style>
+</head>
+<body>
+    <div class="top-bar">
+        <br>
+        <br>
+        <br>
+        <h1>Menu to Navigate through our Website</h1>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+    <!-- <h1>Menu to Navigate thorugh our Website</h1> -->
+    <div class="frem">
+        <!-- <p>Navigate</p> -->
+        <span style="--i:0;--x:-1;--y:0" onclick="redirectTo('home')"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo8Xgh5YF5ui7BA09buDMHLmjEueLwTTeKPA&usqp=CAU" alt="/home"></span>
+        <span style="--i:1;--x:1;--y:0" onclick="redirectTo('about')"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xjWnx31wGx_IrIEn3EyJs51_VswykbcNtA&usqp=CAU" alt=""></span>
+        <span style="--i:2;--x:0;--y:-1"onclick="redirectTo('hair')"><img src="{{ url_for('static', filename='images/hair.png') }}" alt=""></span>
+        <span style="--i:3;--x:0;--y:1"onclick="redirectTo('skin')"><img src="{{ url_for('static', filename='images/skin.png') }}" alt=""></span>
+        <span style="--i:4;--x:1;--y:1" ><img src="" alt=""></span>
+        <span style="--i:5;--x:-1;--y:-1" ><img src="" alt=""></span>
+        <span style="--i:6;--x:0;--y:0"><img src="" alt=""></span>
+        <span style="--i:7;--x:-1;--y:1"><img src="" alt=""></span>
+        <span style="--i:8;--x:1;--y:-1"><img src="" alt=""></span>
+    </div>
+</body>
+<script>
+    function redirectTo(page) {
+            // Handle redirection based on the clicked item
+            if (page === 'home') {
+                window.location.href = '/home1'; // Redirect to home page
+            } else if (page === 'about') {
+                window.location.href = '/about'; // Redirect to signup page
+            }
+            else if (page === 'hair') {
+                window.location.href = '/hair'; // Redirect to signup page
+            }
+            else if (page === 'skin') {
+                window.location.href = '/skin'; // Redirect to signup page
+            }
+           
+           
+        }
+    let frem = document.querySelector('.frem');
+    frem.onclick = function () {
+        frem.classList.toggle('active')
+    }
+</script>
+</html>
