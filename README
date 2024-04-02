@@ -1,0 +1,65 @@
+
+# Skin and Hair Care Recommendation Project
+
+This project aims to provide personalized recommendations for skincare and haircare based on user input regarding their skin and hair type, as well as any problems they may be facing. The project is built using HTML, CSS, JavaScript for the frontend, and Flask for the backend. Data is stored in a CSV file.
+
+## Features
+
+- User-friendly interface for filling out the skincare assignment form.
+- Validation of user input to ensure accurate recommendations.
+- Backend logic using Flask to process user data and provide recommendations.
+- CSV file storage for maintaining user profiles and recommendation history.
+- Responsive design for compatibility across different devices.
+
+## Setup Instructions
+
+1. Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/skin-hair-care-recommendation.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd project folder
+```
+
+3. Create a virtual environment (optional but recommended):
+
+```bash
+python -m venv venv
+```
+
+4. Activate the virtual environment:
+
+On Windows:
+```bash
+venv\Scripts\activate
+```
+
+On macOS/Linux:
+```bash
+source venv/bin/activate
+```
+
+5. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+6. Run the Flask application:
+
+```bash
+flask run
+```
+
+7. Open your web browser and go to `http://localhost:5000` to access the application.
+
+## Usage
+
+1. Fill out the skincare assignment form with details about your skin and hair type, as well as any specific problems you are facing.
+2. Submit the form to receive personalized recommendations.
+3. View your recommendation history and update your profile as needed.
+4. Explore additional features and resources provided within the application.
