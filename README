@@ -1,7 +1,8 @@
- InsightfulGlow
- Skin  and  Hair  Care  Recommendation  Project
 
-This project aims to provide personalized recommendations for skincare and haircare based on user input regarding their skin and hair type, as well as any problems they may be facing. The project is built using HTML, CSS, JavaScript for the frontend, and Flask for the backend. Data is stored in a CSV file.
+
+# InsightfulGlow - Skin and Hair Care Recommendation Project
+
+Welcome to InsightfulGlow! This project aims to provide personalized recommendations for skincare and haircare based on user input regarding their skin and hair type, as well as any problems they may be facing. The project is built using HTML, CSS, JavaScript for the frontend, and Flask for the backend. Data is stored in a CSV file.
 
 ## Features
 
@@ -13,49 +14,51 @@ This project aims to provide personalized recommendations for skincare and hairc
 
 ## Setup Instructions
 
-1. Clone the repository to your local machine:
+1. **Clone the repository to your local machine:**
 
-```bash
-git clone https://github.com/your-username/skin-hair-care-recommendation.git
-```
+   ```bash
+   git clone https://github.com/your-username/skin-hair-care-recommendation.git
+   ```
 
-2. Navigate to the project directory:
+2. **Navigate to the project directory:**
 
-```bash
-cd project folder
-```
+   ```bash
+   cd project folder
+   ```
 
-3. Create a virtual environment (optional but recommended):
+3. **Create a virtual environment (optional but recommended):**
 
-```bash
-python -m venv venv
-```
+   ```bash
+   python -m venv venv
+   ```
 
-4. Activate the virtual environment:
+4. **Activate the virtual environment:**
 
-On Windows:
-```bash
-venv\Scripts\activate
-```
+   On Windows:
 
-On macOS/Linux:
-```bash
-source venv/bin/activate
-```
+   ```bash
+   venv\Scripts\activate
+   ```
 
-5. Install the required dependencies:
+   On macOS/Linux:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   source venv/bin/activate
+   ```
 
-6. Run the Flask application:
+5. **Install the required dependencies:**
 
-```bash
-flask run
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-7. Open your web browser and go to `http://localhost:5000` to access the application.
+6. **Run the Flask application:**
+
+   ```bash
+   flask run
+   ```
+
+7. **Open your web browser and go to `http://localhost:5000` to access the application.**
 
 ## Usage
 
@@ -63,3 +66,4 @@ flask run
 2. Submit the form to receive personalized recommendations.
 3. View your recommendation history and update your profile as needed.
 4. Explore additional features and resources provided within the application.
+
